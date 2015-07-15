@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Cornell CS PhD Student Resources</title>
+  <link href="style.css" rel="stylesheet" type="text/css"/>
+  <script type="text/javascript" src="jquery.js"></script>
+</head>
+
+<body>
+<div id="centering">
+  <header>
+  Cornell CS PhD Student Resources
+  </header>
+  <nav>
+	<ul><li id="overview_link" class="active_link"><a href="#overview">Overview</a></li><li id="czars_link"><a href="#czars">Czarships</a></li><li id="csgo_link"><a href="#csgo">CSGO</a></li><li id="comm_link"><a href="#comm">Communication</a></li><li id="events_link"><a href="#events">Schedules</a></li><li id="groups_link"><a href="#groups">Seminars &amp; Social Groups</a></li></ul>
+  </nav>
+  <main>
+	  <section id="overview" class="active_section">
+	  <div class="intro">
+	  <div>
+	  <h1>Overview</h1>
+	  <p>Hello, and welcome to the Cornell CS Department!
+	  This page serves as a collection of information about resources provided by PhD Students for PhD Students, often with support of the department.
+	  We strongly encourage you to at least browse this page to get an overview of what is available to you and who to go to in case you need something.
+	  These things also do not run on their own, and the people running them may graduate or become busy with other stuff etc., so please also consider helping out.
+	  In the following, we'll give an overview of the individual resource groups described on this page.
+	  You can also jump directly to the more in-depth description pages.</p>
+	  </div>
+	  </div>
+	  <div class="content"><div>
+	  <h2>The Czarship System</h2>
+	  <p>Czars are volunteers who have taken on a specific task to help improve how the department works.
+	  If you have not yet, you may hear from some of them very soon. 
+	  Most czarships either have to do with organizing a specific event, such as <a href="#">visit day</a>, <a href="#">picnic</a>, <a href="#">colloquium</a>, or
+	  <a href="#">student brown bag</a>.
+	  Others take care of specific infrastructure, such as the <a href="#">wiki</a>, the <a href="#">espresso machine</a>, or the <a href="#">foosball table</a>.
+	  Finally, in order to fill these positions and keep track of them, there is the <a href="#">czar-czar</a>.
+	  </p>
+	  <p>You can find <a href="#czars">more about the Czarship System on this page</a> or on the department's <a href="http://www.cs.cornell.edu/People/czars/">Czars page</a>.
+	  </p>
+	  
+	  <h2>CSGO - The Computer Science Graduate Organization</h2>
+	  <p>The CSGO is the body of political representation of all graduate students in the field of computer science.
+	  It serves as the interface to talk to the faculty and administration about graduate student concerns, such
+	  as requirements, communication policies, etc., and sends representatives to the larger representative bodies,
+	  i.e. the <a href="http://www.egsa.cornell.edu/">Engineering Graduate Students Association</a> and <a href="http://assembly.cornell.edu/GPSA/Home">Graduate and Professional Student Assembly</a>.
+	  CSGO can also provide funding for student activities and events.
+	  </p>
+	  <p>You can find <a href="#csgo">more about the CSGO on this page</a> or on the <a href="#">CSGO website</a>.
+	  </p>
+	  
+	  <h2>Communication</h2>
+	  
+	  <h2>Regular Meetings and Events</h2>
+	  
+	  <h2>Seminars &amp; Social Groups</h2>
+	  </div>
+	  </div>
+	  </section>
+	  <section id="czars">
+	  <div class="intro">
+	  <div>
+	  
+	  </div>
+	  </div>
+	  <div class="content">
+	  <div>
+	  
+	  </div>
+	  </div>
+	  </section>
+	  <section id="csgo">
+	  <div class="intro">
+	  <div>
+	  
+	  </div>
+	  </div>
+	  <div class="content">
+	  <div>
+	  
+	  </div>
+	  </div>
+	  </section>
+	  <section id="comm">
+	  <div class="intro">
+	  <div>
+	  
+	  </div>
+	  </div>
+	  <div class="content">
+	  <div>
+	  
+	  </div>
+	  </div>
+	  </section>
+	  <section id="events">
+	  <div class="intro">
+	  <div>
+	  
+	  </div>
+	  </div>
+	  <div class="content">
+	  <div>
+	  
+	  </div>
+	  </div>
+	  </section>
+	  <section id="groups">
+	  <div class="intro">
+	  <div>
+	  
+	  </div>
+	  </div>
+	  <div class="content">
+	  <div>
+	  
+	  </div>
+	  </div>
+	  </section>
+  </main>
+ </div>
+  <script type="text/javascript">
+  function goto_section(section)
+  {
+	$('.active_section').removeClass("active_section");
+	$('.active_link').removeClass("active_link");
+	$('#'+section).addClass("active_section");
+	$('#'+section+'_link').addClass("active_link");
+  }
+  $('nav a').each(function (i,e) {$(e).attr("href","javascript:goto_section('"+e.href.substr(e.href.indexOf('#')+1)+"')")});
+  </script>
+</body>
+</html>
