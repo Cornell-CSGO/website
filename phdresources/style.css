@@ -1,13 +1,14 @@
+html
+{
+	overflow-y:scroll;
+}
+
 header
 {
 	font-size:3em;
 	margin:20px;
 }
 
-main
-{
-	clear:both;
-}
 h1
 {
 	clear:both;
@@ -17,6 +18,7 @@ body
 {
 	margin:0px;
 	font-family:"Segoe UI",Frutiger,Verdana;
+	width:100%;
 }
 #centering
 {
@@ -109,6 +111,7 @@ nav ul li a
 #czars .intro
 {
 	background:#0068ac;
+	color:#ffffff;
 }
 
 #czars .content
@@ -135,6 +138,7 @@ nav ul li a
 #csgo .intro
 {
 	background:#009933;
+	color:#ffffff;
 }
 
 #csgo .content
@@ -187,6 +191,7 @@ nav ul li a
 #events .intro
 {
 	background:#660066;
+	color:#ffffff;
 }
 
 #events .content
@@ -210,28 +215,29 @@ nav ul li a
 	color:#FFFFFF;
 }
 
-#groups .intro
+#howtos .intro
 {
 	background:#993300;
+	color:#ffffff;
 }
 
-#groups .content
+#howtos .content
 {
 	background-image:linear-gradient(to bottom,#993300,white 10px,white);
 }
 
-#groups_link
+#howtos_link
 {
 	background:#993300;
 	color:#FFFFFF;
 }
 
-#groups_link.active_link
+#howtos_link.active_link
 {
 	border-bottom:1px #993300 solid;
 }
 
-#groups_link a
+#howtos_link a
 {
 	color:#FFFFFF;
 }
@@ -240,14 +246,13 @@ main
 {
 	text-align:center;
 	overflow-x:hidden;
-	width:1000px;
+	/*width:100%;*/
 	margin:0px;
 	padding:0px;
 }
 
 section
 {
-	width:100%;
 	margin:0px;
 	padding:0px;
 	display:none;
@@ -256,11 +261,11 @@ section
 section div
 {
 	width:100%;
-	padding:10px;
 }
 
 section div div
 {
+	padding:20px 10px 10px 10px;
 	display:inline-block;
 	width:1000px;
 	text-align:left;
@@ -268,5 +273,33 @@ section div div
 
 .active_section
 {
-	display:inline-block;
+	display:block;
+}
+
+a
+{
+	color:inherit;
+	font-weight:bold;
+	text-decoration:none;
+}
+
+a:active
+{
+	color:inherit;
+	font-weight:bold;
+	text-decoration:none;
+}
+
+a:visited
+{
+	color:inherit;
+	font-weight:bold;
+	text-decoration:none;
+}
+
+a:hover
+{
+	color:inherit;
+	font-weight:bold;
+	text-decoration:underline;
 }
