@@ -5,9 +5,10 @@
   <title>Cornell CS PhD Student Resources</title>
   <link href="style.css" rel="stylesheet" type="text/css"/>
   <script type="text/javascript" src="jquery.js"></script>
+  <script type="text/javascript" src="email.js"></script>
 </head>
 
-<body>
+<body onload="init()">
 <div id="centering">
   <header>
   Cornell CS PhD Student Resources
@@ -32,10 +33,10 @@
 	  <h2>The Czarship System</h2>
 	  <p>Czars are volunteers who have taken on a specific task to help improve how the department works.
 	  If you have not yet, you may hear from some of them very soon. 
-	  Most czarships either have to do with organizing a specific event, such as <a href="#">visit day</a>, <a href="#">picnic</a>, <a href="#">colloquium</a>, or
-	  <a href="#">student brown bag</a>.
-	  Others take care of specific infrastructure, such as the <a href="#">wiki</a>, the <a href="#">espresso machine</a>, the <a href="#">foosball table</a>, or even our <a href="#">office placements</a>.
-	  Finally, in order to fill these positions and keep track of them, there is the <a href="#">czar-czar</a>.
+	  Most czarships either have to do with organizing a specific event, such as <a href="#czars-visitday">visit day</a>, <a href="#czars-picnic">picnic</a>, <a href="#czars-colloquium">colloquium</a>, or
+	  <a href="#czars-studentbrownbag">student brown bag</a>.
+	  Others take care of specific infrastructure, such as the <a href="#czars-wiki">wiki</a>, the <a href="#czars-espresso">espresso machine</a>, the <a href="#czars-foosball">foosball table</a>, or even our <a href="#czars-desk">office placements</a>.
+	  Finally, in order to fill these positions and keep track of them, there is the <a href="#czars-czarczar">czar-czar</a>.
 	  </p>
 	  <p>You can find <a href="#czars">more about the Czarship System on this page</a> or on the department's <a href="http://www.cs.cornell.edu/People/czars/">Czars page</a>.
 	  </p>
@@ -55,9 +56,9 @@
 	  Neither does it contain all details of the different things mentioned here,
 	  it also does not at all contain your practice talk, random rants or suggestions to and planning of seeing movies together.
 	  There are loads of different mailing list you either are or can be on, the most important of which are 
-	  <a href="mailto:cs-phd-students-l@cornell.edu">CS-PHD-Students</a> (for announcements, reaches everyone),
-	  <a href="mailto:cornell-cs-phd-social@googlegroups.com">CS-PHD-Social</a> (opt-in, for getting advice, ranting, and organizing things),
-	  <a href="mailto:cornell-cs-phd-private@googlegroups.com">CS-PHD-Private</a> (opt-in, like PHD-social, but without faculty and admins).
+	  <a class="mailto-cs-phd-students">CS-PHD-Students (JavaScript needed for e-mail address to show)</a> (for announcements, reaches everyone),
+	  <a class="mailto-phd-social">CS-PHD-Social (JavaScript needed for e-mail address to show)</a> (opt-in, for getting advice, ranting, and organizing things),
+	  <a class="mailto-phd-private">CS-PHD-Private (JavaScript needed for e-mail address to show)</a> (opt-in, like PHD-social, but without faculty and admins).
 	  Recently, some functionality of PHD-Social and some specialized mailings lists has shifted over to an IRC-like service called <a href="http://cornellcis.slack.com">Slack</a>.
 	  Besides those lists, there are a few websites that are worth knowing, such as the <a href="http://www.it.cornell.edu/support/coecis/">CS-specific IT-resources</a>.
 	  </p>
@@ -82,11 +83,412 @@
 	  <div class="intro">
 	  <div>
 	  <h1>The Czarship System</h1>
-	  <p></p>
+	  <p>Czars are volunteers who have taken on a specific task to help improve how the department works.
+	  If you have not yet, you may hear from some of them very soon.</p>
+	  <p>
+	  Most czarships either have to do with organizing a specific event or take care of specific infrastructure.
+	  You can see a list of all of them below (at the time of writing this guide - the up-to-date list is always at <a href="http://www.cs.cornell.edu/People/czars/">the department's czars page</a>, but currently features neither photos nor links nor non-job-descriptions).
+	  The system heavily depends on students volunteering, so please consider helping out (especially when a call goes out).
+	  </p>
 	  </div>
 	  </div>
 	  <div class="content">
 	  <div>
+	  <h2>The Czars</h2>
+	  
+	  <div class="czar">
+	  <h3 id="czars-arcade">Arcade</h3>
+	  <div class="images">
+	  <div>
+	  <a href="./images/ogden.jpg"><img src="./images/ogden.jpg"/></a><br/>
+	  <a href="#">Sean Ogden</a>
+	  </div>
+	  <div>
+	  <a href="./images/tmagrino.jpg"><img src="./images/tmagrino.jpg"/></a><br/>
+	  <a href="http://www.cs.cornell.edu/~tmagrino">Tom Magrino</a>
+	  </div>
+	  </div>
+	  <p>
+	  
+	  </p>
+	  </div>
+	  
+	  <div class="czar">
+	  <h3 id="czars-boardgames">Board Games</h3>
+	  <div class="images">
+	  <div>
+	  <a href="./images/laurejt.jpg"><img src="./images/laurejt.jpg"/></a><br/>
+	  <a href="http://www.cs.cornell.edu/~laurejt">Laure Thompson</a>
+	  </div>
+	  </div>
+	  <p>
+	  I run department (CIS-wide) board game nights that take place within Gates. 
+	  This involves reserving rooms, ordering snacks, and playing lots of board games. 
+	  While these events are often broadcast to more public mailing lists, the "official" board games list is the <a href="https://groups.google.com/forum/#!forum/cornell-cs-board-gamers">CS Board Gamers Google group</a>.
+	  Everyone is welcome to play, no experience is required.
+	  </p>
+	  </div>
+	  
+	  <div class="czar">
+	  <h3 id="czars-brownbag">Brown Bag</h3>
+	  <div class="images">
+	  <div>
+	  <a href="./images/jshi.jpg"><img src="./images/jshi.jpg"/></a><br/>
+	  <a href="http://www.cs.cornell.edu/~jshi">Jonathan Shi</a>
+	  </div>
+	  <div>
+	  <a href="./images/ers.jpg"><img src="./images/ers.jpg"/></a><br/>
+	  <a href="http://www.cs.cornell.edu/~ers">Eston Scheickart</a>
+	  </div>
+	  </div>
+	  <p>
+	  
+	  </p>
+	  </div>
+	  
+	  <div class="czar">
+	  <h3 id="czars-coke">Coke</h3>
+	  <div class="images">
+	  <div>
+	  <a href="./images/akhirsch.jpg"><img src="./images/akhirsch.jpg"/></a><br/>
+	  <a href="http://www.cs.cornell.edu/~akhirsch">Andrew K. Hirsch</a>
+	  </div>
+	  <div>
+	  <a href="./images/pramook.jpg"><img src="./images/pramook.jpg"/></a><br/>
+	  <a href="http://www.cs.cornell.edu/~pramook">Pramook Khungurn</a>
+	  </div>
+	  </div>
+	  <p>
+	  
+	  </p>
+	  </div>
+	  
+	  <div class="czar">
+	  <h3 id="czars-colloquium">Colloquium</h3>
+	  <div class="images">
+	  <div>
+	  <a href="./images/xanda.jpg"><img src="./images/xanda.jpg"/></a><br/>
+	  <a href="http://www.cs.cornell.edu/~xanda">Xanda Schofield</a>
+	  </div>
+	  </div>
+	  <p>
+	  Colloquium czars help visiting speakers and faculty candidates to set up their presentations for colloquium. 
+	  If you are interested in helping out, you should contact <a class="mailto-schofield">Xanda (JavaScript needed for e-mail address to show)</a>, the lead colloquium czar, for information about how to help. 
+	  The commitment is usually 3:45 PM - 5:30 PM for 3-6 colloquia a semester depending on your availability. 
+	  The earlier you sign up to do this, the easier it is to meet and impress cool future faculty in your area!
+	  </p>
+	  </div>
+	  
+	  <div class="czar">
+	  <h3 id="czars-czarczar">Czars</h3>
+	  <div class="images">
+	  <div>
+	  <a href="./images/milano.jpg"><img src="./images/milano.jpg"/></a><br/>
+	  <a href="http://www.cs.cornell.edu/~milano">Matthew Milano</a>
+	  </div>
+	  <div>
+	  <a href="./images/fabianm.png"><img src="./images/fabianm.png"/></a><br/>
+	  <a href="http://www.cs.cornell.edu/~fabianm">Fabian Muehlboeck</a>
+	  </div>
+	  </div>
+	  <p>
+	  We manage the Czars and Czarships.<br/>
+	  You think there is a Czar-like task in the department that would benefit from being a Czarship?
+	  Let us know!<br/>
+	  You think you could be a Czar for something?
+	  Let us know!<br/>
+	  You are unable to contact a Czar?
+	  Let us know!<br/>
+	  You are a Czar and need help or cannot be that Czar anymore?
+	  Let us know!<br/>
+	  We (or really anyone) sent out an e-mail about looking for someone to fill a Czarship?
+	  Please reply!
+	  </p>
+	  </div>
+	  
+	  <div class="czar">
+	  <h3 id="czars-desk">Desk</h3>
+	  <div class="images">
+	  <div>
+	  <a href="./images/fabianm.png"><img src="./images/fabianm.png"/></a><br/>
+	  <a href="http://www.cs.cornell.edu/~fabianm">Fabian Muehlboeck</a>
+	  </div>
+	  </div>
+	  <p>
+	  I help the administration keep track of who sits where and assign new offices in exchange for you having lots of choice in the matter.
+	  Once a year, I send out a questionnaire where you can tell me if and what office you would like to move to, and I'll make that happen if there is space (else you will hear from me).
+	  I am also the person to talk to if you want to move to another office during the year (but please don't just move all the time).
+	  </p><p>Often, faculty can arrange for you to get access to a particular room so you can move, but you're making my work a lot easier if you
+	  let either Becky or me know that you moved (because otherwise we might think that your new desk is still free).
+	  </p>
+	  <p>"Desk" Czar is a misnomer - I only keep track of things on the level of rooms.</p>
+	  </div>
+	  
+	  <div class="czar">
+	  <h3 id="czars-espresso">Espresso</h3>
+	  <div class="images">
+	  <div>
+	  <a href="./images/kaimast.jpg"><img src="./images/kaimast.jpg"/></a><br/>
+	  <a href="http://kai-mast.de">Kai Mast</a>
+	  </div>
+	  </div>
+	  <p>
+	  
+	  </p>
+	  </div>
+	  
+	  <div class="czar">
+	  <h3 id="czars-foosball">Foosball</h3>
+	  <div class="images">
+	  <div>
+	  <a href="./images/djfoster.jpg"><img src="./images/djfoster.jpg"/></a><br/>
+	  <a href="http://dylanfoster.net">Dylan Foster</a>
+	  </div>
+	  </div>
+	  <p>
+	  
+	  </p>
+	  </div>
+	  
+	  <div class="czar">
+	  <h3 id="czars-hockey">Hockey</h3>
+	  <div class="images">
+	  <div>
+	  <a href="./images/jhessel.jpg"><img src="./images/jhessel.jpg"/></a><br/>
+	  <a href="http://www.cs.cornell.edu/~jhessel">Jack Hessel</a>
+	  </div>
+	  <div>
+	  <a href="./images/rahli.jpg"><img src="./images/rahli.jpg"/></a><br/>
+	  <a href="http://www.cs.cornell.edu/~rahli">Vincent Rahli</a>
+	  </div>
+	  </div>
+	  <p>
+	  
+	  </p>
+	  </div>
+	  
+	  <div class="czar">
+	  <h3 id="czars-kitchen">Kitchen</h3>
+	  <div class="images">
+	  <div>
+	  <a href="./images/deniz.jpg"><img src="./images/deniz.jpg"/></a><br/>
+	  <a href="http://www.cs.cornell.edu/~deniz">Deniz Altinbuken</a>
+	  </div>
+	  </div>
+	  <p>
+	  
+	  </p>
+	  </div>
+	  
+	  <div class="czar">
+	  <h3 id="czars-mentoring">Mentoring</h3>
+	  <div class="images">
+	  <div>
+	  <a href="./images/bgulko.jpg"><img src="./images/bgulko.jpg"/></a><br/>
+	  <a href="http://www.cs.cornell.edu/~bgulko">Brad Gulko</a>
+	  </div>
+	  <div>
+	  <a href="./images/upchurch.jpg"><img src="./images/upchurch.jpg"/></a><br/>
+	  <a href="">Paul Upchurch</a>
+	  </div>
+	  </div>
+	  <p>
+	  
+	  </p>
+	  </div>
+	  
+	  <div class="czar">
+	  <h3 id="czars-outreach">Outreach</h3>
+	  <div class="images">
+	  <div>
+	  <a href="./images/tmagrino.jpg"><img src="./images/tmagrino.jpg"/></a><br/>
+	  <a href="http://www.cs.cornell.edu/~tmagrino">Tom Magrino</a>
+	  </div>
+	  </div>
+	  <p>
+	  
+	  </p>
+	  </div>
+	  
+	  <div class="czar">
+	  <h3 id="czars-picnic">Picnic</h3>
+	  <div class="images">
+	  <div>
+	  <a href="./images/tmagrino.jpg"><img src="./images/tmagrino.jpg"/></a><br/>
+	  <a href="http://www.cs.cornell.edu/~tmagrino">Tom Magrino</a>
+	  </div>
+	  </div>
+	  <p>
+	  
+	  </p>
+	  </div>
+	  
+	  <div class="czar">
+	  <h3 id="czars-photo">Photo</h3>
+	  <div class="images">
+	  <div>
+	  <a href="./images/chinawat.png"><img src="./images/chinawat.png"/></a><br/>
+	  <a href="http://www.cs.cornell.edu/~chinawat">Chin Isradisaikul</a>
+	  </div>
+	  </div>
+	  <p>
+	  The Photo Czar takes photographs of incoming PhD students and faculty. 
+	  The photographs used to be posted on the photo board next to the 4th floor atrium in Upson Hall and made available on-line.
+	  We're still trying to figure out where to put them in Gates Hall.
+	  </p>
+	  </div>
+	  
+	  <div class="czar">
+	  <h3 id="czars-programmingcontest">Programming Contest</h3>
+	  <div class="images">
+	  <div>
+	  <a href="./images/fleischman.jpg"><img src="./images/fleischman.jpg"/></a><br/>
+	  <a href="#">Daniel Fleischman</a>
+	  </div>
+	  </div>
+	  <p>
+	  
+	  </p>
+	  </div>
+	  
+	  <div class="czar">
+	  <h3 id="czars-quotes">Quotes</h3>
+	  <div class="images">
+	  <div>
+	  <a href="./images/edward.jpg"><img src="./images/edward.jpg"/></a><br/>
+	  <a href="http://www.cs.cornell.edu/~edward">Edward Tremel</a>
+	  </div>
+	  </div>
+	  <p>
+	  I maintain the department <a href="http://quotes.cs.cornell.edu/">Quotes Page</a>, which collects funny and memorable quotes from department members. 
+	  Anyone can submit quotes, and vote them up or down, but I'm responsible for approving submitted quotes before they're displayed (to prevent spam and abuse). 
+	  Occasionally I also add new features to the site.
+	  </p>
+	  </div>
+	  	  
+	  <div class="czar">
+	  <h3 id="czars-refrigerator">Refrigerator</h3>
+	  <div class="images">
+	  <div>
+	  <a href="./images/tmagrino.jpg"><img src="./images/tmagrino.jpg"/></a><br/>
+	  <a href="http://www.cs.cornell.edu/~tmagrino">Tom Magrino</a>
+	  </div>
+	  </div>
+	  <p>
+	  
+	  </p>
+	  </div>
+	  
+	  <div class="czar">
+	  <h3 id="czars-socialhour">Social Hour</h3>
+	  <div class="images">
+	  <div>
+	  <a href="./images/rahmtin.jpg"><img src="./images/rahmtin.jpg"/></a><br/>
+	  <a href="http://www.cs.cornell.edu/~rahmtin">Rahmtin Rotabi</a>
+	  </div>
+	  </div>
+	  <p>
+	  The social hour czar organizes department social events in the department on Friday.
+	  </p>
+	  <p>
+	  Usually I send out emails to ask people to volunteer and sometimes two people volunteer together. 
+	  The volunteer should go to Lindsay's office, right beside the elevator on the ground floor and ask for the Wegmans card! 
+	  We have $225 of budget for the entire event. 
+	  $15 is already spent on wine and you don't need to purchase wine. 
+	  For the rest of the budget an $85 and $125 is a good split for alcoholic drinks(not wine) and snacks/non-alcoholic drinks. 
+	  </p>
+	  </div>
+	  
+	  <div class="czar">
+	  <h3 id="czars-studentbrownbag">Student Brown Bag</h3>
+	  <div class="images">
+	  <div>
+	  <a href="./images/langlois.jpg"><img src="./images/langlois.jpg"/></a><br/>
+	  <a href="http://www.cs.cornell.edu/~langlois">Timothy Langlois</a>
+	  </div>
+	  </div>
+	  <p>
+	  The czar organizes weekly talks by students, usually describing current research, but sometimes also discussing useful research tools such as reference managers. 
+	  The czar's main duties are getting speakers lined up (this usually involves sending emails and bugging people in person), and ordering food for the seminar (very easy, done using Cornell e-shop).
+	  If you want to practice your talk, get feedback on an idea from other students or just want to tell others about some cool thing you learned, let me know and I’ll set you up for a talk. 
+	  I also might approach you to ask if you could do any of the above at some point to fill some slots.
+	  </p>
+	  </div>
+	  
+	  <div class="czar">
+	  <h3 id="czars-systemslunch">Systems Lunch</h3>
+	  <div class="images">
+	  <div>
+	  <a href="./images/edward.jpg"><img src="./images/edward.jpg"/></a><br/>
+	  <a href="http://www.cs.cornell.edu/~edward">Edward Tremel</a>
+	  </div>
+	  </div>
+	  <p>
+	  I help to organize the weekly <a href="http://www.systems.cs.cornell.edu/syslunch/">Systems Lunch</a>, along with the systems faculty. 
+	  This mostly consists of worrying about when the food will arrive and making sure everything is cleaned up at the end.
+	  </p>
+	  </div>
+	  
+	  <div class="czar">
+	  <h3 id="czars-tgif">TGIF</h3>
+	  <div class="images">
+	  <div>
+	  <a href="./images/dilorenzo.jpg"><img src="./images/dilorenzo.jpg"/></a><br/>
+	  <a href="http://www.cs.cornell.edu/~dilorenzo">Jonathan DiLorenzo</a>
+	  </div>
+	  </div>
+	  <p>
+	  The TGIF czarship is exactly what it sounds like! 
+	  Expect e-mails to the PHD social listserv (which I recommend being on) about super awesome happy fun time on Fridays! 
+	  Feel free to talk to me about other possible Friday fun-time activities (or maybe even other days!) or, you know... just send out an e-mail?
+	  </p>
+	  </div>
+	  
+	  <div class="czar">
+	  <h3 id="czars-theorytea">Theory Tea</h3>
+	  <div class="images">
+	  <div>
+	  <a href="./images/samhop.jpg"><img src="./images/samhop.jpg"/></a><br/>
+	  <a href="http://www.cs.cornell.edu/~samhop">Sam Hopkins</a>
+	  </div>
+	  </div>
+	  <p>
+	  I run the theory tea, which takes many forms. 
+	  Of late, it has been merged with the theory seminar, taking the form of student talks given when there is no visiting speaker. 
+	  To get involved, come to the seminar/tea!
+	  </p><p>
+      To find out more, go to the theory seminar website (<a href="http://www.cs.cornell.edu/courses/cs7890/2015fa/">Course Website</a>/<a href="http://wiki.cs.cornell.edu/index.php?title=Theory_tea_reading_group">Wiki Page</a>) or ask me.
+	  </p>
+	  </div>
+	  
+	  <div class="czar">
+	  <h3 id="czars-visitday">Visit Day</h3>
+	  <div class="images">
+	  <div>
+	  <a href="./images/unknown.jpg"><img src="./images/unknown.jpg"/></a><br/>
+	  <a href="#">You?</a>
+	  </div>
+	  </div>
+	  <p>
+	  Visit Day Czars organize visit day.
+	  This is an intensive task over several weeks, organizing a major multi-day event with quite some freedom but also lots of constraints.
+	  The Visit Day Czars for this year have not yet been determined, but are usually first-years advised by the previous year's Visit Day Czars.
+	  </p>
+	  </div>
+	  
+	  
+	  <div class="czar">
+	  <h3 id="czars-wiki">Wiki</h3>
+	  <div class="images">
+	  <div>
+	  <a href="./images/yosinski.jpg"><img src="./images/yosinski.jpg"/></a><br/>
+	  <a href="http://yosinski.com">Jason Yosinski</a>
+	  </div>
+	  </div>
+	  <p>
+	  
+	  </p>
+	  </div>
 	  
 	  </div>
 	  </div>
@@ -143,12 +545,47 @@
 	  </table>
 	  
 	  <h3>Colloquium</h3>
+	  <p>The CS Colloquium is a series of invited talks given by speakers from outside of the department.
+	  PhD students are generally expected to attend these (it is also a course - CS 7090 - for which you should register).
+	  Usually, there is a reception before the Colloquium (most times in (front of) Gates 416 - "New Visions").
+	  The spring semester typically features lots of hiring talks, often also on Tuesdays.
+	  This is where you can get an impression of potential new faculty.</p>
+	  
+	  <p>To see upcoming talks, you can look at the current <a href="http://www.cs.cornell.edu/events/colloquium">colloquium schedule</a>. Usually, there are also a bunch of e-mail announcements about a week before and at the start of the reception.</p>
 	  
 	  <h3>Brown-Bag Talks</h3>
+	  <p>Brown-Bag talks are brown-bag in name only. 
+	  Usually, food is actually provided.
+	  At the Tuesday brown bag, faculty talk about their current research projects and/or general topics of interest to PhD students (e.g. "How to Give a Research Talk").
+	  At the Wednesday student brown bag, students talk about their current research, or ideas they want to get feedback on, or give practice talks.
+	  The format there is very flexible and can be discussed with the <a href="">Student Brown Bag Czar</a>.</p>
+	  
+	  <p>Here are the links to the schedules of the <a href="http://www.cs.cornell.edu/~jshi/brownbag/">CS Brown Bag</a> (Tuesdays) and the <a href="https://docs.google.com/spreadsheets/d/1X2xyoLAHeMoQyQEcBIDRN6lpvp24ur3XwRfthJkHCWI/edit#gid=2135342766">Student Brown Bag</a> (Wednesdays).</p>
 	  
 	  <h3>Area Seminars</h3>
+	  <p>
+	  Many research areas have weekly seminars run as courses.
+	  These seminars usually provide food in one form or another, particularly Systems Lunch and AI Lunch.
+	  If you are working in one of those areas, you should register for the respective seminar course (CS 7xxx).
+	  However, you are usually welcome to attend any of these even without registering, and in fact should do so if it sounds interesting to you.
+	  </p>
 	  
 	  <h3>Student-Run Seminars</h3>
+	  Some students interested in particular topics or discussion formats have also started inofficial seminars.
+	  If you want to do that on your own, all you need is some faculty to back requests for a mailing list and a regular room reservation (and potentially funding for food).
+	  Groups organized after this scheme are:
+	  
+	  <table>
+	  <thead>
+	  <tr><th>Group</th><th>Meeting Time</th><th>Notes</th></tr>
+	  </thead>
+	  <tbody>
+	  <tr><td><a href="http://www.cs.cornell.edu/~tmagrino/SecDG/">Security Discussion Group</a></td><td>TBA</td><td>Now CS7493</td></tr>
+	  <tr><td>Theory Tea</td><td>TBA</td><td>Now interchanging with CS 7890</td></tr>
+	  <tr><td><a href="http://www.cs.cornell.edu/~fabianm/tpls/">Theory of Programming Languages Seminar</a></td><td>TBA</td><td>&nbsp;</td></tr>
+	  </tbody>
+	  </table>
+	  
 	  
 	  <h3>Socials</h3>
 	  
@@ -173,25 +610,66 @@
   </main>
  </div>
   <script type="text/javascript">
-  function goto_section(section)
+  function goto_section(hash)
   {
+	var section=hash;
+	var toSubSect=false;
+	if(hash.indexOf("-")>0)
+	{
+		section=hash.substring(0,hash.indexOf("-"));
+		toSubSect=true;
+	}
 	$('.active_section').removeClass("active_section");
 	$('.active_link').removeClass("active_link");
-	$('#'+section).addClass("active_section");
-	$('#'+section+'_link').addClass("active_link");
+	$(section).addClass("active_section");
+	$(section+'_link').addClass("active_link");
+	if(toSubSect)
+	{
+		$('html, body').scrollTop($(hash).position().top);
+	}
+	if(history.pushState) {
+		history.pushState(null, null, hash);
+	}
+	else
+	{
+		location.hash = hash.substring(1);
+	}
   }
-  var lnks=[];
+  /*var lnks=[];
   $('nav a').each(function (i,e) 
   { 
     lnks.push($(e).attr("href"));
   });
-  alert(lnks);
   $('a').each(function (i,e) {
     if(lnks.indexOf($(e).attr("href"))>=0)
 	{
-		$(e).attr("href","javascript:goto_section('"+e.href.substr(e.href.indexOf('#')+1)+"')");
+		$(e).attr("href","javascript:goto_section('"+e.href.substr(e.href.indexOf('#'))+"')");
 	}
-  });
+  });*/
+  
+  function checkHash(hash){
+	if($(hash).length>0)
+	{
+		goto_section(hash);
+	}
+  }
+  
+  function init()
+  {
+	checkHash(location.hash);
+	$(window).on("hashchange", function(event){
+                checkHash(location.hash);
+            });
+  }
+  
+	showEmail("mailto-cs-phd-students", "hx&{co&x~onex&g", "cornell.edu",
+		11, "CS-PHD-Students");
+	showEmail("mailto-phd-social", "gkvjahh)gw)tl`)wkgmeh", "googlegroups.com",
+		4, "CS-PHD-Social");
+	showEmail("mailto-phd-private", "\".3/$--l\"2l1)%l13(7 5$", "googlegroups.com",
+		65, "CS-PHD-Private");
+	showEmail("mailto-schofield", "ULCIL", "cs.cornell.edu",
+		45, "Xanda");
   </script>
 </body>
 </html>

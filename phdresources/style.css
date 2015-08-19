@@ -303,3 +303,29 @@ a:hover
 	font-weight:bold;
 	text-decoration:underline;
 }
+
+.czar div
+{
+	padding:0px;
+}
+
+.czar img
+{
+	max-width:128px;
+	max-height:256px;
+	display:inline-block;
+}
+
+.czar .images
+{
+	display:inline-block;
+	float:left;
+	width:auto;
+}
+
+.czar .images div
+{
+	width:150px;
+	padding:11px;
+	text-align:center;
+}
