@@ -40,6 +40,7 @@ function showEmail(linkid, n, d, x, rplc) {
 	if($("."+linkid).length>0)
 	{
 		var links=$("."+linkid).get();
+		var i;
 		for(i=0;i<links.length;i++)
 		{
 			showEmailElem(links[i],n,d,x,rplc);
@@ -47,8 +48,11 @@ function showEmail(linkid, n, d, x, rplc) {
 	}
 	else
 	{
-		var link = document.getElementById(linkid);
-		showEmailElem(link, n, d, x, rplc);
+		var links=$("#"+linkid).get();
+		for(i=0;i<links.length;i++)
+		{
+			showEmailElem(links[i],n,d,x,rplc);
+		}
 	}
 }
 	
@@ -56,6 +60,7 @@ function showEmailElem(link, n, d, x, rplc)
 {
     function xor_str(s, x) {
 	var ret = "";
+	var i;
 	for (i = 0; i < s.length; i++) // 'for i in s' doesn't work in IE
 	    ret += String.fromCharCode(s.charCodeAt(i) ^ x);
 	return ret;
