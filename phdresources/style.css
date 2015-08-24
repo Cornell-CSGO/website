@@ -329,3 +329,18 @@ a:hover
 	padding:11px;
 	text-align:center;
 }
+
+.footer
+{
+	text-align:center;
+	width:100%;
+}
+
+.footer div
+{
+	display:inline-block;
+	text-align:center;
+	width:1000px;
+	padding:20px;
+	font-size:10px;
+}
