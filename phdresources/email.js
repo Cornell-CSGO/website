@@ -43,7 +43,13 @@ function showEmail(linkid, n, d, x, rplc) {
 		var i;
 		for(i=0;i<links.length;i++)
 		{
-			showEmailElem(links[i],n,d,x,rplc);
+			showEmailElem(links[i],n,d,x,rplc,"");
+		}
+		links=$(".join-"+linkid).get();
+		var i;
+		for(i=0;i<links.length;i++)
+		{
+			showEmailElem(links[i],n,d,x,false,"-request");
 		}
 	}
 	else
@@ -51,12 +57,17 @@ function showEmail(linkid, n, d, x, rplc) {
 		var links=$("#"+linkid).get();
 		for(i=0;i<links.length;i++)
 		{
-			showEmailElem(links[i],n,d,x,rplc);
+			showEmailElem(links[i],n,d,x,rplc,"");
+		}
+		links=$("#join-"+linkid).get();
+		for(i=0;i<links.length;i++)
+		{
+			showEmailElem(links[i],n,d,x,false,"-request");
 		}
 	}
 }
 	
-function showEmailElem(link, n, d, x, rplc)
+function showEmailElem(link, n, d, x, rplc,join)
 {
     function xor_str(s, x) {
 	var ret = "";
@@ -88,7 +99,11 @@ function showEmailElem(link, n, d, x, rplc)
 	}
     kid.onmouseover = function () {
 	//kid.parentNode.removeChild(kid);
-	var url = "mailto:" + n + "@" + d; // + "%20(" + nm + ")"; --changed by FM
+	var url = "mailto:" + n + join + "@" + d; // + "%20(" + nm + ")"; --changed by FM
+	if (join.length>0)
+	{
+	    url += "?Subject=join"
+	}
 	link.setAttribute("href", url);
 	link.setAttribute("class", "email");
 	kid.onmouseover = function () {}

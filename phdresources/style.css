@@ -216,29 +216,29 @@ nav ul li a
 	color:#FFFFFF;
 }
 
-#howtos .intro
+#res .intro
 {
 	background:#993300;
 	color:#ffffff;
 }
 
-#howtos .content
+#res .content
 {
 	background-image:linear-gradient(to bottom,#993300,white 10px,white);
 }
 
-#howtos_link
+#res_link
 {
 	background:#993300;
 	color:#FFFFFF;
 }
 
-#howtos_link.active_link
+#res_link.active_link
 {
 	border-bottom:1px #993300 solid;
 }
 
-#howtos_link a
+#res_link a
 {
 	color:#FFFFFF;
 }
@@ -309,21 +309,21 @@ a:hover
 	padding:0px;
 }
 
-.czar img
+.images img
 {
 	max-width:128px;
 	max-height:256px;
 	display:inline-block;
 }
 
-.czar .images
+.images
 {
 	display:inline-block;
 	float:left;
 	width:auto;
 }
 
-.czar .images div
+.images div
 {
 	width:150px;
 	padding:11px;
