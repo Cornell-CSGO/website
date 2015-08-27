@@ -40,6 +40,7 @@ ul#social li a {
 }
 
 .navbar-inverse {
+    text-align : center;
     min-height: 130px;
     background-color: #B31B1B;
 }
