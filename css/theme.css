@@ -28,6 +28,7 @@ nav li {
     font-size: 1em;
 }
 
+
 code {
     color: #B31B1B;
     background-color: #f2f4f7;
@@ -47,14 +48,16 @@ ul#social li a {
     color: #ffffff;
 }
 
+.navbar-inverse .navbar-nav li a:hover {
+    background-color: #8F1616;
+}
+
+
 img.navbar-right {
     margin-top: 0.25em;
     margin-right: 0.5em;
 }
 
-ul#navigation li a:hover {
-    background-color: #1F0068;
-}
 
 .jumbotron {
     background-color: #f2f4f7;
@@ -71,6 +74,25 @@ ul#navigation li a:hover {
     margin:0;
     padding:0;
     font-size: 4em;
+}
+
+#board {
+    text-align : center;
+    font-weight : normal;
+    vertical-align : bottom;
+}
+
+#board img
+{
+    vertical-align : bottom;
+    max-width:128px;
+    max-height:256px;
+    display:inline-block;
+}
+
+#blurb p {
+    text-align : left;
+    font-size : 1.5em;
 }
 
 #recently .row {
