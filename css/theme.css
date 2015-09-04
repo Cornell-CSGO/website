@@ -85,10 +85,8 @@ img.navbar-right {
 
 #board img
 {
-    vertical-align : bottom;
     max-width:128px;
     max-height:256px;
-    display:inline-block;
 }
 
 #blurb p {
