@@ -77,16 +77,34 @@ img.navbar-right {
     font-size: 4em;
 }
 
-#board {
-    text-align : center;
-    font-weight : normal;
-    vertical-align : bottom;
+#current-board {
+  text-align : center;
+  font-weight : normal;
+  vertical-align : bottom;
 }
 
-#board img
-{
-    max-width:200px;
-    max-height:256px;
+#current-board h1 {
+  text-align: left;
+  margin: 0.5em 0;
+}
+
+#current-board .row {
+  margin: 0.5em 0;
+}
+
+#current-board .officer_name {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+#current-board .eboard_title {
+  font-style: italic;
+  font-size: 0.95em;
+}
+
+.headshot {
+  width: 150px;
+  height: 150px;
 }
 
 #blurb p {
