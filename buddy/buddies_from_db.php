@@ -13,7 +13,7 @@ function getBuds($netid) {
 	var_dump($rslt);
 
 	$rows = [];
-	while ($row = $result->fetch_assoc()) {
+	while ($row = $rslt->fetch_assoc()) {
 		array_push($rows, $row->getArrayCopy());
 	}
 	/* free result set */
