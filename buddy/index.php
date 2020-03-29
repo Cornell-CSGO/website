@@ -17,13 +17,16 @@
 	
 	require_once "database.php";
 	require_once "buddies_from_db.php";
+	require_once "messages.php";
 
-	// $netid = 'oer5';
+	// $netid = 'vk352';
 	if(array_key_exists("NETID", getallheaders())) {
 		$netid = getallheaders()["NETID"];
+		$cell = getCell($netid);
 		$buds = getBuds($netid);
+		$messages = getMessagesFor($netid);
 		
-		echo $template->render(['buddies' => $buds]);
+		echo $template->render(['netid' => $netid, 'buddies' => $buds, 'messages'=>$messages]);
 		
 		$csgo_db->query("UPDATE Users SET last_online=now() WHERE netid='".$netid."'");
 		$csgo_db->close();

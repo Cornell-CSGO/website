@@ -1,9 +1,16 @@
 {% extends  "csgo-base.twig.html" %}
 
+{% block scripts %}
+	{{ parent() }}
+
+	<script type="text/javascript" src="./js/buddy.js"></script>
+{% endblock %}
+
 {% block content %}
-	<div class = "container-fluid d-flex flex-column flex-fill">
+	<span style="display:none" id="me">{{netid}}</span>
+	<div class = "container-fluid {#d-flex flex-column flex-fill#}">
 		<div class="row">
-			<div class="container">
+			<div class="offset-md-2 col-md-8 outline-green">
 				<div class="spacer"></div>
 				<h1 class="title"><span class="wrap">Buddy System</span></h1>
 				<p>
@@ -14,13 +21,13 @@
 			</div>
 		</div>
 
-				{% if buddies is empty %}
-					<h2 class="text-center">You have not been assigned to a cell.</h2>
-				{% else %}
+			{% if buddies is empty %}
+				<h2 class="text-center">You have not been assigned to a cell.</h2>
+			{% else %}
 				
-				<div class="flex-fill custom-dark-bg">
-				<h2 class="text-center" style="margin-top:15px;">Your Cell</h2>
-					<div class='row justify-content-center'>
+			<h2 class="text-center" style="margin-top:15px;">Your Cell</h2>
+			<div class="row flex-fill custom-dark-bg justify-content-center">
+				{# <div class=''> #}
 					
 					{% for buddy in buddies %}
 						<div class="mb-4 card text-white bg-dark">
@@ -43,19 +50,42 @@
 						</div>
 						
 					{% endfor %}
+				{# </div> #}
+			</div>
+			
+		<div class="spacer"></div>
+		<div class="spacer"></div>
+		
+		<div class="row">
+			{# <div class="container"> #}
+				<div class="offset-lg-2 col-lg-8">
+					<div class="row">
+						<div class="col-12">
+							<textarea id="composeTextArea" rows="8" class="form-control"></textarea>
+						</div>
+						<div class="offset-10 col-2">
+							
+						<button type="button" id="sendB" class="btn btn-block btn-dark" style="=height:100%;">SEND</button> 
+						</div>
+					</div>
+
+					<div id="message_div">
+					{% for log in messages %}<small class="timestamp">{{log.ts}}</small>
+						<p> <b>{{log.sender}}: </b> {{ log.data }} </p> 
+					{% endfor %}
 					</div>
 				</div>
-				<div class="spacer"></div>
-				<div class="spacer"></div>
 				
 				
-				<div class="spacer"></div>
-				<div class="spacer"></div>
-				
-
-				<h2 style="color:gray;text-align:center;">more to come...</h2>
-				
-				{% endif %}
-
+				<div class="col-12 spacer"></div>
+				<div class="col-12 spacer"></div> 
+			{# </div> #}
+		
+		</div>
+		<div class="row">
+				<h2 class="offset-sm-2 col-sm-8 text-center" style="color:gray;">more to come...</h2>
+			{% endif %}
+		</div>
+		<div class="col-12 spacer"></div> 
 	</div>
 {% endblock %}

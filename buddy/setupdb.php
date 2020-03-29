@@ -9,10 +9,12 @@ global $csgo_db;
 // Create database unnecsessary
 
 // Create tables
-$sql = "DROP TABLE IF EXISTS UserCell, Cells, Users;";
+$sql = "DROP TABLE IF EXISTS Reactions,Messages,UserCell, Cells, Users;";
 $sql .= "CREATE TABLE Cells (id INT NOT NULL AUTO_INCREMENT, meettime DATE, PRIMARY KEY (id)); ";
 $sql .= "CREATE TABLE Users (netid VARCHAR(10), fname VARCHAR(30), lname VARCHAR(50), last_online DATETIME, PRIMARY KEY (netid) ); ";
 $sql .= "CREATE TABLE UserCell (user VARCHAR(10), cell INT, FOREIGN KEY (user) REFERENCES Users(netid), FOREIGN KEY (cell) REFERENCES Cells(id) );";
+$sql .= "CREATE TABLE Messages (id INT NOT NULL AUTO_INCREMENT, parent INT, data TEXT, sender VARCHAR(10), channel INT, ts TIMESTAMP, PRIMARY KEY(id), FOREIGN KEY (sender) REFERENCES Users(netid), FOREIGN KEY (channel) REFERENCES Cells(id) );";
+$sql .= "CREATE TABLE Reactions (id INT NOT NULL AUTO_INCREMENT, parent INT, user VARCHAR (10), react VARCHAR);";
 
 echo $sql;
 echo '<br><br>';
@@ -20,7 +22,7 @@ echo '<br><br>';
 if ($csgo_db->multi_query($sql)) {
 	do {
 		$rslt = $csgo_db->use_result();
-    	echo "Table created? ". $rslt;
+    	echo "Table created~ ". $rslt;
 		if(!$csgo_db->more_results()){break;}
 	} while ($csgo_db->next_result());
 } else {
