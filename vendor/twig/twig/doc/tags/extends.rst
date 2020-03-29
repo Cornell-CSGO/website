@@ -104,7 +104,7 @@ Named Block End-Tags
 --------------------
 
 Twig allows you to put the name of the block after the end tag for better
-readability (the name after the ``endblock`` word must match the block name):
+readability:
 
 .. code-block:: twig
 
@@ -113,6 +113,8 @@ readability (the name after the ``endblock`` word must match the block name):
             ...
         {% endblock inner_sidebar %}
     {% endblock sidebar %}
+
+Of course, the name after the ``endblock`` word must match the block name.
 
 Block Nesting and Scope
 -----------------------
@@ -156,9 +158,16 @@ instance, Twig will use it as the parent template::
 
     // {% extends layout %}
 
+    // deprecated as of Twig 1.28
+    $layout = $twig->loadTemplate('some_layout_template.twig');
+
+    // as of Twig 1.28
     $layout = $twig->load('some_layout_template.twig');
 
     $twig->display('template.twig', ['layout' => $layout]);
+
+.. versionadded:: 1.2
+    The possibility to pass an array of templates has been added in Twig 1.2.
 
 You can also provide a list of templates that are checked for existence. The
 first template that exists will be used as a parent:

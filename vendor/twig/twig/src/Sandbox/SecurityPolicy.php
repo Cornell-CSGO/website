@@ -12,20 +12,21 @@
 namespace Twig\Sandbox;
 
 use Twig\Markup;
-use Twig\Template;
 
 /**
  * Represents a security policy which need to be enforced when sandbox mode is enabled.
  *
+ * @final
+ *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-final class SecurityPolicy implements SecurityPolicyInterface
+class SecurityPolicy implements SecurityPolicyInterface
 {
-    private $allowedTags;
-    private $allowedFilters;
-    private $allowedMethods;
-    private $allowedProperties;
-    private $allowedFunctions;
+    protected $allowedTags;
+    protected $allowedFilters;
+    protected $allowedMethods;
+    protected $allowedProperties;
+    protected $allowedFunctions;
 
     public function __construct(array $allowedTags = [], array $allowedFilters = [], array $allowedMethods = [], array $allowedProperties = [], array $allowedFunctions = [])
     {
@@ -50,7 +51,7 @@ final class SecurityPolicy implements SecurityPolicyInterface
     {
         $this->allowedMethods = [];
         foreach ($methods as $class => $m) {
-            $this->allowedMethods[$class] = array_map(function ($value) { return strtr($value, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'); }, \is_array($m) ? $m : [$m]);
+            $this->allowedMethods[$class] = array_map('strtolower', \is_array($m) ? $m : [$m]);
         }
     }
 
@@ -87,12 +88,12 @@ final class SecurityPolicy implements SecurityPolicyInterface
 
     public function checkMethodAllowed($obj, $method)
     {
-        if ($obj instanceof Template || $obj instanceof Markup) {
+        if ($obj instanceof \Twig_TemplateInterface || $obj instanceof Markup) {
             return;
         }
 
         $allowed = false;
-        $method = strtr($method, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz');
+        $method = strtolower($method);
         foreach ($this->allowedMethods as $class => $methods) {
             if ($obj instanceof $class) {
                 $allowed = \in_array($method, $methods);
