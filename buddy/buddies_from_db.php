@@ -1,7 +1,7 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+//ini_set('display_errors', 1);
+//ini_set('display_startup_errors', 1);
+//error_reporting(E_ALL);
 
 // requires database.php to be loaded for global!
 function getBuds($netid) {
@@ -14,7 +14,9 @@ function getBuds($netid) {
 
 	$rows = [];
 	while ($row = $rslt->fetch_assoc()) {
-		array_push($rows, $row->getArrayCopy());
+		echo "<br>";
+		var_dump($row);
+		array_push($rows, $row);
 	}
 	/* free result set */
 	$rslt->free();
