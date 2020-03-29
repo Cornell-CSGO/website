@@ -1,5 +1,5 @@
 <?php 
-require "./conf/options.php";
+require "../conf/options.php";
 global $Opt;
 $servername = "localhost";
 $username = $Opt["dbUser"];

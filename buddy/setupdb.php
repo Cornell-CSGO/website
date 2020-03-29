@@ -50,25 +50,25 @@ if ($grpfile) {
 		$sql_grpins = "INSERT INTO Cells (meettime) VALUES (NULL)";
 		$csgo_db->query($sql_grpins);
 		$grp_id = $csgo_db->insert_id;
+		echo "making grp ".$grp_id;
 	
-		foreach(array_map('trim', explode(",", $line)) as &$id){
+		foreach(array_map('trim', explode(",", $line)) as $id){
 			$sql_celluser = sprintf("INSERT INTO UserCell (user,cell) VALUES ('%s', %d)", $id, $grp_id);
 			// echo "<br>". $sql_celluser;
 			$rslt = $csgo_db->query($sql_celluser);
 			if ( $rslt){
-				// echo "... ✓";
+				// echo "... good";
 			}
 			else{
 				echo "Error: " . $sql_celluser . "<br>" . $csgo_db->error;
 			} 
-		}
-	
+		}	
     }
 
     fclose($grpfile);
 } else {
 	echo "Error opening groups.csv";
 } 
-
-$csgo_db->close();
+//
+//$csgo_db->close();
 ?>
