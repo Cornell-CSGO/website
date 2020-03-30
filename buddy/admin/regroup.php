@@ -23,7 +23,7 @@ if ($grpfile) {
 
 		foreach(array_map('trim', explode(",", $line)) as $id){
 			echo " ; ".$id;
-			array_push($participants, $id);
+			$participants[] = $id;
 			
 			$sql = "SELECT cell FROM UserCell WHERE user=".$id." AND cell=".$grp_id;
 			if($rslt = $csgo_db->query($sql) ) {

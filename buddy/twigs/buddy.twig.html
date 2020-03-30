@@ -12,12 +12,14 @@
 		<div class="row">
 			<div class="offset-md-2 col-md-8 outline-green">
 				<div class="spacer"></div>
-				<h1 class="title"><span class="wrap">Buddy System</span></h1>
+				<h1 class="title">Buddy System</h1>
 				<p>
 					These cells meet virtually once per week and are responsible for making sure that their buddies are ok, and either reporting serious issues, or directly getting help for those who need it.
 				</p>
-				<p> Please email one another or use the provided chat system below (which currently requires reloading the page for new messages) to set up a weekly meeting time; this page will be updated with more information soon! </p>
-				<p> <b>30 Mar. </b> Minor group changes may still occur for a few days, to take into account new constraints; if your group gets a new person, messages will be erased.</p>
+				<p> 
+					Please email one another or use the provided chat system below (which currently requires reloading the page for new messages) to set up a weekly meeting time; this page will be updated with more information soon! 
+				</p>
+				<p> <b>30 Mar. </b> Minor group changes may still occur for a few days, to take into account new constraints.</p>
 				<div class="spacer"></div>
 			</div>
 		</div>
@@ -58,29 +60,31 @@
 		<div class="spacer"></div>
 		
 		<div class="row">
-			{# <div class="container"> #}
-				<div class="offset-lg-2 col-lg-8">
-					<div class="row">
-						<div class="col-12">
-							<textarea id="composeTextArea" rows="8" class="form-control"></textarea>
-						</div>
-						<div class="offset-10 col-2">
-							
+			<div class="offset-lg-2 col-lg-8">
+				<div class="row"><div class="col-12">
+						<textarea id="composeTextArea" rows="8" class="form-control"></textarea>
+				</div></div>
+				<div class="d-flex justify-content-end">
+					<div class="" style="padding-top:7px; margin-right:16px; display:none;">
+						
+						<input class="form-check-input" type="checkbox" name="mailCheck" id="mailCheck" value="email" checked>
+						<label class="form-check-label" for="mailCheck">Send as Email</label>
+					</div>
+					<div class="">
 						<button type="button" id="sendB" class="btn btn-block btn-dark" style="=height:100%;">SEND</button> 
-						</div>
 					</div>
-
-					<div id="message_div">
-					{% for log in messages %}<small class="timestamp">{{log.ts}}</small>
-						<p> <b>{{log.sender}}: </b> {{ log.data }} </p> 
-					{% endfor %}
-					</div>
+						
 				</div>
-				
-				
-				<div class="col-12 spacer"></div>
-				<div class="col-12 spacer"></div> 
-			{# </div> #}
+
+				<div id="message_div">
+				{% for log in messages %}<small class="timestamp">{{log.ts}}</small>
+					<p class='message timestamped'> <b>{{log.sender}}: </b> {{ log.data }} </p> 
+				{% endfor %}
+				</div>
+			</div>
+
+			<div class="col-12 spacer"></div>
+			<div class="col-12 spacer"></div> 
 		
 		</div>
 		<div class="row">
@@ -89,4 +93,14 @@
 		</div>
 		<div class="col-12 spacer"></div> 
 	</div>
+{% endblock %}
+
+{% block unauthenticated %}
+	<div class="spacer"></div>
+	<h1 class="title">Buddy System</h1>
+	<p>
+		These cells meet virtually once per week and are responsible for making sure that their buddies are ok, and either reporting serious issues, or directly getting help for those who need it.
+	</p>
+	<h2 style="color:#950;">You are not authenticated!</h2>
+	  
 {% endblock %}

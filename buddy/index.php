@@ -18,11 +18,10 @@
 	require_once "database.php";
 	require_once "buddies_from_db.php";
 	require_once "messages.php";
-
-	if(array_key_exists("NETID", getallheaders())) {
-		$netid = getallheaders()["NETID"];
-	// $netid = 'oer5';
-
+		
+	require_once "load_netid.php";
+	
+	if($netid !== NULL) {
 		// $cell = getCell($netid);
 		$csgo_db->query("UPDATE Users SET last_online=now() WHERE netid='".$netid."'");
 
@@ -34,6 +33,6 @@
 		$csgo_db->close();
 	}
 	else {
-		echo $template->render(['buddies' => []]);
+		echo $template->renderBlock('unauthenticated', []);
 	}
 ?>

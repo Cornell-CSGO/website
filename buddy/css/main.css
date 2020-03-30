@@ -14,6 +14,11 @@
 
 small.timestamp {
     color: #DDD;
+    margin-bottom:-30px;
+}
+p.message.timestamped {
+    margin-top: -5px;
+    margin-bottom:2px;
 }
 
 .card-footer {
