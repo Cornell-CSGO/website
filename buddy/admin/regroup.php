@@ -39,7 +39,8 @@ if ($grpfile) {
 			}
 		}
 		// (3) remove all UserCell rows that are not in any group.
-		while ($row = $csgo_db->query("SELECT user FROM UserCell")->fetch_assoc()) {
+		$rslt = $csgo_db->query("SELECT user FROM UserCell");
+		while ($row = $rslt->fetch_assoc()) {
 			$id = $row['user'];
 			if(! in_array($id, $participants, TRUE)) {
 				$csgo_db->query("DELETE FROM UserCell WHERE user='".$id."'");
