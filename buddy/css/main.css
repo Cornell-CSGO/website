@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box
+} 
+
 .spacer {
     display:block;
     height:50px;
@@ -8,13 +12,17 @@
     flex : 1;
 }
 
+small.timestamp {
+    color: #DDD;
+}
+
 .card-footer {
     color: #AAA;
     font-size: smaller;
 }
 
 .custom-dark-bg {
-    background-color: #eee;
+    /* background-color: #eee; */
     /* background-color: #64436e; */
     /* color: #eeeeee; */
 }
