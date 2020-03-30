@@ -1,4 +1,5 @@
 <?php  
+
 	ini_set('display_errors', 1);
 	ini_set('display_startup_errors', 1);
 	error_reporting(E_ALL);
@@ -19,9 +20,9 @@
 	require_once "buddies_from_db.php";
 	require_once "messages.php";
 
-	// $netid = 'vk352';
-	if(array_key_exists("NETID", getallheaders())) {
-		$netid = getallheaders()["NETID"];
+	$netid = 'nn269';
+	// if(array_key_exists("NETID", getallheaders())) {
+		// $netid = getallheaders()["NETID"];
 		$cell = getCell($netid);
 		$buds = getBuds($netid);
 		$messages = getMessagesFor($netid);
@@ -30,8 +31,8 @@
 		
 		$csgo_db->query("UPDATE Users SET last_online=now() WHERE netid='".$netid."'");
 		$csgo_db->close();
-	}
-	else {
-		echo $template->render(['buddies' => []]);
-	}
+	// }
+	// else {
+		// echo $template->render(['buddies' => []]);
+	// }
 ?>
