@@ -19,7 +19,6 @@
 	require_once "buddies_from_db.php";
 	require_once "messages.php";
 
-	// $netid = 'vk352';
 	if(array_key_exists("NETID", getallheaders())) {
 		$netid = getallheaders()["NETID"];
 		$cell = getCell($netid);
@@ -33,5 +32,5 @@
 	}
 	else {
 		echo $template->render(['buddies' => []]);
-	}
+	 }
 ?>

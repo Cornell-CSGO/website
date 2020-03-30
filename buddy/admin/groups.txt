@@ -1,7 +1,7 @@
 jl3956,yx454,avs88
 sa2238,jl3836,mvv25
 sy729,mlb452,mr943
-yl3237,sy536,yh885,sc3246
+yl3237,sy536,yh885
 kpd46,pa395,jpc362
 rq49,emm392,bp397
 yl2866,gbr26,jtc257
@@ -16,7 +16,7 @@ jk2569,rhd89,pad242
 kw568,jj585,kaw293
 rn359,pk467,xh258
 kav64,hm553,cp598
-sy657,jp2475,ebc65
+ebc65,jp2475,sy657
 qc228,vs442,sk3277
 km676,ak2485,ljt82
 yz2327,sr2262,als476
@@ -24,7 +24,7 @@ sm2723,adt66,sm2686
 tt544,als495,cto9
 df394,jrg358,yl2967
 yj389,mcm377,mk2534
-jyf6,jmh563,kan65
+jb2467,kan65,sc3246
 yg478,wx97,pag225
 srj57,zl548,crf87
 cg563,zw555,yb263
@@ -39,10 +39,10 @@ fz84,sgh65,ehl59
 bsm92,afc78,ear295
 wl678,kl935,xw467
 sl3275,hn332,rb724
-nn269,don4,zw385
+nn269,zw385
 nt355,zd53,gy46
 as3663,gg462,sp2473
-jb2467,qw246,da462
+qw246,jyf6,da462
 krg48,yg393,cs2296
 sb2352,jpg276,sea79
 ssd86,sbn45,iad35
