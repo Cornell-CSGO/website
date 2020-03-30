@@ -20,12 +20,15 @@ if ($grpfile) {
 		// echo "making grp ".$grp_id;
 		
 		$grp_id += 1;
-	
+
 		foreach(array_map('trim', explode(",", $line)) as $id){
+			echo " ; ".$id;
 			array_push($participants, $id);
+			
 			$sql = "SELECT cell FROM UserCell WHERE user=".$id." AND cell=".$grp_id;
 			if($rslt = $csgo_db->query($sql) ) {
 				if ( $rslt->num_rows === 0) {
+					echo "Zero rows for: ".$sql;
 					// (1) if CellUser[$id] != $grp_id, drop messages for $grpid.
 					echo "DELETING Messages from Group ". $grp_id." because ". $id . " has now joined. ";
 					$csgo_db->query("DELETE FROM Messages WHERE channel=".$grp_id)
@@ -38,15 +41,18 @@ if ($grpfile) {
 				}
 			}
 		}
-		// (3) remove all UserCell rows that are not in any group.
-		$rslt = $csgo_db->query("SELECT user FROM UserCell");
-		while ($row = $rslt->fetch_assoc()) {
-			$id = $row['user'];
-			if(! in_array($id, $participants, TRUE)) {
-				$csgo_db->query("DELETE FROM UserCell WHERE user='".$id."'");
-			}
-		}
+		
     }
+	echo "<h3> Total participants: " . count($participants) . "</h3>";
+	// (3) remove all UserCell rows that are not in any group.
+	$rslt = $csgo_db->query("SELECT user FROM UserCell");
+	while ($row = $rslt->fetch_assoc()) {
+		$id = $row['user'];
+		if(! in_array($id, $participants, TRUE)) {
+			echo "<br> ". $id . " not in $participants; removing".
+			$csgo_db->query("DELETE FROM UserCell WHERE user='".$id."'");
+		}
+	}
 
     fclose($grpfile);
 } else {
