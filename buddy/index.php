@@ -21,16 +21,19 @@
 
 	if(array_key_exists("NETID", getallheaders())) {
 		$netid = getallheaders()["NETID"];
-		$cell = getCell($netid);
+	// $netid = 'oer5';
+
+		// $cell = getCell($netid);
+		$csgo_db->query("UPDATE Users SET last_online=now() WHERE netid='".$netid."'");
+
 		$buds = getBuds($netid);
 		$messages = getMessagesFor($netid);
 		
 		echo $template->render(['netid' => $netid, 'buddies' => $buds, 'messages'=>$messages]);
 		
-		$csgo_db->query("UPDATE Users SET last_online=now() WHERE netid='".$netid."'");
 		$csgo_db->close();
 	}
 	else {
 		echo $template->render(['buddies' => []]);
-	 }
+	}
 ?>
