@@ -28,6 +28,7 @@
 			$rslt->free();
 		}
 		require_once "current-week.php";
+		// echo var_dump($timewindow);
 		
 		echo $template->render(['netid' => $netid, 'saved' => $saved, 'tw' => $timewindow]);
 		

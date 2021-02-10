@@ -23,7 +23,7 @@ if($rslt = $csgo_db->query("SELECT ts FROM TAFormLog WHERE netid = \"$netid\""))
 $timewindow = array('start'=> $window_start, 
 	'end' => $window_end,
 	'last_submit' => $last_submit,
-	'recieving' => $survey_recieving);
+	'receiving' => $survey_recieving);
 	
 // echo "<h2>" . var_dump($last_submit) . "</h2>";
 ?>

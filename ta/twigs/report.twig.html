@@ -128,10 +128,10 @@
 				<div id="weekly-questions" class="qblock" >
 					<h2>Weekly Questions 
 						<span class="badge badge-dark float-right">[{{tw.start | date('j M')}} - {{tw.end | date('j M')}}]
-						 	{% if not tw.survey_recieving %} <span class="badge badge-success">complete <i class="fas fa-check"></i> </span> {% endif %} </span> 
+						 	{% if not tw.receiving %} <span class="badge badge-success">complete <i class="fas fa-check"></i> </span> {% endif %} </span> 
 						
 						</h2>
-					{% if tw.survey_recieving %}
+					{% if tw.receiving %}
 					<p>
 						The hours will only be used in aggregate form, and will never be associated with your identity.  Please enter hours for the week of <code>{{tw.start | date('j M')}} - {{tw.end | date('j M')}}</code>. If you do not know the exact number, we encourage you to estimate.
 					</p>
