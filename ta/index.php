@@ -1,7 +1,7 @@
 <?php  
-//	ini_set('display_errors', 1);
-//	ini_set('display_startup_errors', 1);
-//	error_reporting(E_ALL);
+	ini_set('display_errors', 1);
+	ini_set('display_startup_errors', 1);
+	error_reporting(E_ALL);
 	
 	// load twig engine...
 	require_once '../vendor/autoload.php';
@@ -12,23 +12,24 @@
 		 // 'auto_reload' => true
 	]);
 	
-	$template = $twig->load('buddy.twig.html');
+	$template = $twig->load('report.twig.html');
 	
 	
 	require_once "database.php";
-	require_once "buddies_from_db.php";
-	require_once "messages.php";
+	// require_once "buddies_from_db.php";
+	// require_once "messages.php";
 		
 	require_once "load_netid.php";
 	
 	if($netid !== NULL) {
-		// $cell = getCell($netid);
-		$csgo_db->query("UPDATE Users SET last_online=now() WHERE netid='".$netid."'");
-
-		$buds = getBuds($netid);
-		$messages = getMessagesFor($netid);
+		if($rslt = $csgo_db->query(
+				"SELECT * FROM TASemesterAutofill WHERE netid=\"$netid\" ")) {
+			$saved = $rslt->fetch_assoc();
+			$rslt->free();
+		}
+		require_once "current-week.php";
 		
-		echo $template->render(['netid' => $netid, 'buddies' => $buds, 'messages'=>$messages]);
+		echo $template->render(['netid' => $netid, 'saved' => $saved, 'tw' => $timewindow]);
 		
 		$csgo_db->close();
 	}

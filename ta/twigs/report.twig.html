@@ -1,0 +1,243 @@
+{% extends  "csgo-base.twig.html" %}
+
+{% block scripts %}
+	{{ parent() }}
+	<script type="text/javascript" src="./js/ta.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js" integrity="sha512-UwcC/iaz5ziHX7V6LjSKaXgCuRRqbTp1QHpbOJ4l1nw2/boCfZ2KlFIqBUA/uRVF0onbREnY9do8rM/uT/ilqw==" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/bootstrap-slider.min.js" integrity="sha512-f0VlzJbcEB6KiW8ZVtL+5HWPDyW1+nJEjguZ5IVnSQkvZbwBt2RfCBY0CBO1PsMAqxxrG4Di6TfsCPP3ZRwKpA==" crossorigin="anonymous"></script>
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" type="text/css" href= "./css/ta.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/css/bootstrap-slider.min.css" integrity="sha512-3q8fi8M0VS+X/3n64Ndpp6Bit7oXSiyCnzmlx6IDBLGlY5euFySyJ46RUlqIVs0DPCGOypqP8IRk/EyPvU28mQ==" crossorigin="anonymous" />
+{% endblock %}
+
+
+{% block content %}
+	<span style="display:none" id="me">{{netid}}</span>
+	<div class = "container-fluid {#d-flex flex-column flex-fill#}">
+		<div class="row">
+			<div class="offset-lg-1 col-lg-10">
+				<div class="spacer"></div>
+				<h1 class="title">TA Reporting System</h1>
+				<h5 class="subtitle">[ authenticated as <code>{{netid}}</code>;
+					{% if tw.last_submit %} 
+					last submitted on <code>{{tw.last_submit | date('j M Y') | lower }}</code>
+					{% else %} initial submission {% endif %} ]</h5>
+				<p>
+					All questions are optional. Your netID will be associated with the time of submission, but
+					not with any of your responses, unless you explicitly indicate otherwise in this form.
+				</p>
+				<div class="spacer"></div>
+			</div>
+		</div>
+		
+		<form class="" action="submit-ta-form.php" method="post">
+		<div class="row">
+			<div class="offset-lg-1 col-lg-10">
+				<div class="qblock" id="once-per-semester">
+					<h2 id="genqh2">General Questions about TAship
+					{% if(saved) %}<span class="badge badge-info float-right" id="autofillbadge">autofilled</span> {% endif %}
+					<a class="float-right" id="once-fold"
+						data-toggle="collapse" href="#ops-collapse"><i class="fas fa-chevron-{{saved ? 'left':'down'}}"></i></a> </h2>
+					<div class="collapse {{saved ? '':'show'}}" id="ops-collapse">
+						<p>
+							These questions only need to be filled out once per semester.
+						</p>
+						<div class="form-group row">
+							<label for="coursenum" class="col-4 col-form-label text-right">Course</label>
+							<input type="text" class="form-control col-6" name="course" 
+							id="coursenum" placeholder="course number e.g., cs4700" value="{{saved.course}}">
+						</div>
+						<div class="form-group row">
+							<label for="instructor" class="col-4 col-form-label text-right">Instructor NetID(s)</label>
+							<input type="text" class="form-control col-6" name="instructor" placeholder="e.g., abc123, cba321" value="{{saved.instructor}}">
+						</div>
+						<div class="form-group row">
+							<span style="display:none" id="saved_irel">{{saved.irelation}}</span>
+							<label for="irelation" class="col-sm-4 col-form-label text-sm-right">
+								Relationship to the course instructor </label>
+								<select class="form-control offset-1 offset-sm-0 col-10 col-sm-7 align-self-center" name="irelation" id="irelation">
+									<option value="">(decline to answer)</option>
+									<option value="advisor">An instructor is my advisor.</option>
+									<option value="maybe-advisor">I am considering an instructor as an advisor.</option>
+									<option value="collaborator">I work with an instructor in another capacity.</option>
+									<option value="none">I have no plans to work with an instructor.</option>
+								</select>
+							</div>
+							
+							<div class="form-group row">
+								<!-- <span style="display:none" id="saved_prof">{{saved.proficiency}}</span> -->
+								<label for="qualified-slider" class="col-sm-4 col-form-label text-sm-right">
+									My proficiency in the course material, when course was assigned
+									<!-- To be qualified to teach this class, I needed -->
+								</label>
+								<div class="offset-1 col-10 col-sm-6 text-center align-self-center small-slider-labels">
+									<input id="qualified-slider" name="proficiency" type="text" style="width:100%!important"
+									data-provide="slider"
+									data-slider-ticks="[-1,0,1,2]"
+									data-slider-ticks-labels='["novice", "rusty", "proficient", "veteran"]'
+									data-slider-min="-1"
+									data-slider-max="4"
+									data-slider-step="1"
+									data-slider-value="{{saved ? saved.proficiency : 1}}"
+									data-slider-tooltip="hide" />						
+								</div>
+								
+							</div>
+							
+							<!-- <input id="ex13" type="text" data-slider-ticks="[0, 100, 200, 300, 400]" data-slider-ticks-snap-bounds="30" data-slider-ticks-labels='["$0", "$100", "$200", "$300", "$400"]'/> -->
+							
+							<!-- <select class="" name="qualified"> -->
+							<!-- <option value="zero"></option> -->
+							<!-- <option value="minimal"></option> -->
+							<!-- <option value="substantial"></option> -->
+							<!-- </select> -->
+							
+							<div class="form-group row">
+								<label for="wantedtaship" class="col-sm-5 col-7 text-right col-form-label"> 
+									I wanted to TA this course </label>
+									<div class="col-auto">
+										<input type="checkbox" class="padded-check" id="wantedtaship" name="wantedta" value="yes" {{ saved.wantedta ? "checked" : "" }}>
+									</div>
+								</div>
+								<!-- <div class="form-group row">
+								<label for="immediate" class="col-sm-2 col-form-label text-right">
+								I </label>
+								<select class="form-control col-sm-5" id=immediate>
+								<option value="1">Immediately</option>
+								<option value="0">End of Semester</option>
+							</select>
+						</div> -->
+						
+						<p>
+							<label for="opsc">
+								<input type="checkbox"class="padded-check" name="once_per_semester_consent" id="opsc" value="yes" {{ saved.consent ? "checked" : "" }} />
+								&nbsp;&nbsp;
+								I give the CSGO permission to associate the data in this block with my netid until the end the current semester (at which point it will be purged), for the sole purpose of simplifying this form (by automatically populating these questions on authentication).  
+							</label>
+						</p>
+					</div>
+				</div>
+			</div>
+		
+		</div>
+		<div class="row">		
+			<div class="offset-lg-1 col-lg-10">			
+				<div id="weekly-questions" class="qblock" >
+					<h2>Weekly Questions 
+						<span class="badge badge-dark float-right">[{{tw.start | date('j M')}} - {{tw.end | date('j M')}}]
+						 	{% if not tw.survey_recieving %} <span class="badge badge-success">complete <i class="fas fa-check"></i> </span> {% endif %} </span> 
+						
+						</h2>
+					{% if tw.survey_recieving %}
+					<p>
+						The hours will only be used in aggregate form, and will never be associated with your identity.  Please enter hours for the week of <code>{{tw.start | date('j M')}} - {{tw.end | date('j M')}}</code>. If you do not know the exact number, we encourage you to estimate.
+					</p>
+					
+					<div class="form-group row"> <!-- official hours --> 
+						<label for="ohours" class="col-form-label text-sm-right col-sm-7">
+							Hours spent on official TA duties </label>
+							<input type="text" class="form-control col-sm-3 align-self-center" id="ohours" name="ohours"
+							placeholder="# of official hours">
+						</div>
+						
+					<div class="form-group row"> <!-- additional hours --> 
+						<label for="ahours" class="col-form-label text-sm-right col-sm-7">
+							Additional hours spent in connection with the course <br/>(e.g., reviewing material, tinkering with grading systems, ...) </label>
+							<input type="text" class="form-control col-sm-3 align-self-center" id="ahours" 
+							name="ahours" placeholder="# of addional hours">
+						</div>
+						
+					<div class="form-group row"> <!-- satisfaction --> 
+						<label for="happiness" class="col-sm-4 col-form-label text-sm-right">
+							Satisfaction with my TAship
+							<!-- To be qualified to teach this class, I needed -->
+						</label>
+						<div class="offset-1 col-10 col-sm-6 text-center align-self-center">
+							<input  name="happiness" class="" type="text" style="width:100%!important"
+							data-provide="slider"
+							data-slider-id="happy-slider"
+							data-slider-ticks="[0,1,2,3,4]"
+							data-slider-ticks-labels='["😭", "", "", "", "😊"]'
+							data-slider-min="-1"
+							data-slider-max="4"
+							data-slider-step="1"
+							data-slider-value="3"
+							data-slider-tooltip="hide" />						
+						</div>
+					</div>
+					
+					<div class="form-group row"> <!-- overworked --> 
+						<label for="overworked" class="col-sm-4 col-7 text-right col-form-label"> 
+							I feel overworked </label>
+						<div class="col-auto">
+							<input type="checkbox" class="padded-check" id="overworked" name="overworked" value="yes">
+						</div>
+					</div>
+						
+					<div class="form-group row"> <!-- additional thoughts -->
+						<label for="overworked" class="col-sm-4 col-12 text-sm-right col-form-label"> 
+							Additional thoughts </label>
+							<div class="col input-group">
+								<textarea class="form-control" id="extra" name="extra"></textarea>
+								<div class="input-group-append">
+							    <span class="input-group-text"><label for="associate-with-netid" >
+										<input id="associate-with-netid" type="checkbox" class="padded-check" name="extra_associcate_netid" value="yes"><br>
+										sign <br>
+										-- <code>{{netid}}</code></label></span>
+							  </div>
+								<!-- <div class="text-right">
+									<label for="associate-with-netid" >
+										<input id="associate-with-netid" type="checkbox" name="extra-associcate-netid" checked>
+										associate with my NetID</label>												
+								</div> -->
+							</div>
+						</div>
+				
+					<div class="form-group row">
+						<label for="" class="col-12 offset-sm-1 col-sm-6 text-sm-right col-form-label">
+							I give the CSGO permission to associate these repsonses with the instructor and classs... 
+						</label>
+						<div class="offset-1 col-10 offset-sm-0 col-sm-4">
+							<div class="form-check">
+							  <input class="form-check-input" type="radio" name="associate_course" id="associate1" value="now" checked>
+							  <label class="form-check-label" for="associate1" checked>immediately</label>
+							</div>
+							<div class="form-check form-check">
+							  <input class="form-check-input" type="radio" name="associate_course" id="associate2" value="later">
+							  <label class="form-check-label" for="associate2">at the end of the semester</label>
+							</div>
+							<div class="form-check form-check">
+							  <input class="form-check-input" type="radio" name="associate_course" id="associate3" value="never">
+							  <label class="form-check-label" for="associate3">never</label>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-auto offset-lg-1">
+				<button type="submit" class="btn btn-dark btn-lg" style="margin-left:10px;" id="submit-button">Submit</button>
+			</div>
+		</div>
+		{% endif %}
+		</form>
+
+			
+		
+	</div>
+{% endblock %}
+
+{% block unauthenticated %}
+	<div class="spacer"></div>
+	<h1 class="title">TA Reporting System</h1>
+	<p>
+		Please sign in to use the reporting system. 
+	</p>
+	<h2 style="color:#950;">You are not authenticated!</h2>
+	  
+{% endblock %}
