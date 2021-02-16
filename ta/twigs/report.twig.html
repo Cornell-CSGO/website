@@ -183,9 +183,10 @@
 							<div class="col input-group">
 								<textarea class="form-control" id="extra" name="extra"></textarea>
 								<div class="input-group-append">
-							    <span class="input-group-text"><label for="associate-with-netid" >
+							    <span class="input-group-text"><label for="associate-with-netid" class="col-form-label">
+										Include<br> NetID<br>
 										<input id="associate-with-netid" type="checkbox" class="padded-check" name="extra_associcate_netid" value="yes"><br>
-										sign <br>
+										<!-- sign <br> -->
 										-- <code>{{netid}}</code></label></span>
 							  </div>
 								<!-- <div class="text-right">
@@ -227,8 +228,17 @@
 		{% endif %}
 		</form>
 
-			
+		<div class="spacer"></div>
 		
+		
+		<footer class="col-auto offset-lg-1">
+			Feel free to email 
+			<a href="mailto:oer5@cornell.edu">Oliver (CSGO secretary)</a>
+			or
+			<a href="mailto:rn359@cs.cornell.edu">Rachit (CSGO Special Representative for TAs)</a>
+			with questions or concerns.
+			<div class="spacer"></div>
+		</footer>
 	</div>
 {% endblock %}
 
