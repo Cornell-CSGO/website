@@ -1,9 +1,11 @@
 <?php  
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
 
-var_dump($_POST);
+// var_dump($_POST);
+echo "<h1>Response Recieved. Thank you for contributing!</h1>";
+echo "Don't worry about the emoji logs below. <br> <small> (but if one is negative, the developper might appreciate a nudge) </small><br>";
 
 // load twig engine...
 require_once '../vendor/autoload.php';
@@ -38,7 +40,7 @@ if($consent) {
 			"{$_POST['proficiency']}",
 			"$wantedta", TRUE)
 		SQL))
-	{	echo "<h2> Autofill table updated </h2>";  }
+	{	echo "<h2> :parrot: </h2>";  }
 	else {echo "Inserts failed (" . $csgo_db->errno . ') ' . $csgo_db->error;}
 } else {
 	$csgo_db-> query("DELETE FROM TASemesterAutofill WHERE netid = \"$netid\"");
@@ -66,11 +68,11 @@ INSERT INTO TAFormData
 		"{$_POST['appthours']}",
 		"{$_POST['irelation']}",
 		"{$_POST['proficiency']}",
-		"{$wantedta}"
+		"{$wantedta}",
 		"{$_POST['ahours']}",
 		"{$_POST['ohours']}",
 		"{$_POST['happiness']}",
-		"{$overworked}"
+		"{$overworked}",
 		"{$defer}" );
 INSERT INTO TAFeedback (extra, extra_netid, course, instructor)
 	values ("{$_POST['extra']}", "$maybenetid", "{$_POST['course']}", "{$_POST['instructor']}");
@@ -80,6 +82,16 @@ SQL;
 // $template = $twig->load('report.twig.html');
 if($netid !== NULL) {
 	if( $csgo_db->multi_query($sql)) {
+		do {
+			$csgo_db->use_result();
+			
+			echo ":D";
+			
+			if( $csgo_db->more_results() ){
+				printf("  &nbsp;&nbsp;  ");
+			}
+			
+		} while ($csgo_db->next_result());
 		echo "<h1> :D </h1>";
 	} else {
 		echo "<h1> :( </h1>";
