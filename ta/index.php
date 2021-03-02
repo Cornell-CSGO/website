@@ -25,10 +25,11 @@
 		if($rslt = $csgo_db->query(
 				"SELECT * FROM TASemesterAutofill WHERE netid=\"$netid\" ")) {
 			$saved = $rslt->fetch_assoc();
-			$rslt->free();
+			// $rslt->free();
 		}
 		require_once "current-week.php";
 		// echo var_dump($timewindow);
+		// echo var_dump($saved);
 		
 		echo $template->render(['netid' => $netid, 'saved' => $saved, 'tw' => $timewindow]);
 		

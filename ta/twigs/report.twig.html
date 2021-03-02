@@ -51,6 +51,11 @@
 							id="coursenum" placeholder="course number e.g., cs4700" value="{{saved.course}}">
 						</div>
 						<div class="form-group row">
+							<label for="appthours" class="col-4 col-form-label text-right">Official average number of weekly hours for appointment</label>
+							<input type="text" class="form-control col-6" name="appthours" 
+							id="appthours" placeholder="# of hours; usually 5 for part-time TAs, and 15 for full-time TAs" value="{{saved.appthours}}">
+						</div>
+						<div class="form-group row">
 							<label for="instructor" class="col-4 col-form-label text-right">Instructor NetID(s)</label>
 							<input type="text" class="form-control col-6" name="instructor" placeholder="e.g., abc123, cba321" value="{{saved.instructor}}">
 						</div>
@@ -218,15 +223,19 @@
 						</div>
 						
 					</div>
+					{% endif %}
 				</div>
 			</div>
 		</div>
+		
+		{% if tw.receiving %}
 		<div class="row">
 			<div class="col-auto offset-lg-1">
 				<button type="submit" class="btn btn-dark btn-lg" style="margin-left:10px;" id="submit-button">Submit</button>
 			</div>
 		</div>
 		{% endif %}
+
 		</form>
 
 		<div class="spacer"></div>

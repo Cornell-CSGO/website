@@ -28,11 +28,12 @@ $overworked = intval(array_key_exists('overworked', $_POST));
 if($consent) {
 	if( $csgo_db->query(<<<SQL
 		REPLACE INTO TASemesterAutofill
-			(netid, course, instructor, irelation, proficiency, wantedta, consent)
+			(netid, course, instructor, appthours, irelation, proficiency, wantedta, consent)
 		values (
 			"$netid",
 			"{$_POST['course']}",
 			"{$_POST['instructor']}",
+			"{$_POST['appthours']}",
 			"{$_POST['irelation']}",
 			"{$_POST['proficiency']}",
 			"$wantedta", TRUE)
@@ -58,10 +59,11 @@ $defer = intval(array( "now" => FALSE, "later" => TRUE )[$_POST['associate_cours
 $sql = <<<SQL
 INSERT INTO TAFormLog (netid) values ("$netid");
 INSERT INTO TAFormData
- 		(course, instructor, irelation, proficiency, wantedta, ohours, ahours, happiness, overworked, defer)
+ 		(course, instructor, appthours, irelation, proficiency, wantedta, ohours, ahours, happiness, overworked, defer)
  	values ( 
 		"{$_POST['course']}", 
 		"{$_POST['instructor']}",
+		"{$_POST['appthours']}",
 		"{$_POST['irelation']}",
 		"{$_POST['proficiency']}",
 		"{$wantedta}"

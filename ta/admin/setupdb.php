@@ -25,6 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         	netid VARCHAR(10),
         	course VARCHAR(20),
         	instructor VARCHAR(30),
+            appthours INT,
         	irelation VARCHAR(40),
         	proficiency INT,
         	wantedta VARCHAR(10),
@@ -34,13 +35,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         	id INT NOT NULL AUTO_INCREMENT,
          	course VARCHAR(20),
         	instructor VARCHAR(30),
+            appthours INT,
         	irelation VARCHAR(40),
         	proficiency INT,
-            {$comment('wantedta BOOLEAN, ')}
+            wantedta BOOLEAN,
         	ohours FLOAT,
         	ahours FLOAT,
         	happiness INT,
-            {$comment('overworked BOOLEAN,')}
+            overworked BOOLEAN,
         	defer BOOLEAN,
          	ts TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
         		PRIMARY KEY (id));
