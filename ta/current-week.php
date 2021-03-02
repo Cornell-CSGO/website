@@ -2,11 +2,11 @@
 require_once 'database.php';
 require_once 'load_netid.php';
 
-$window_end = strtotime("last Friday");
+$window_end = strtotime("last Friday", strtotime("tomorrow"));
 $window_start = strtotime("-7 day", $window_end);
 
-// echo "<h2>". date('j M', $start) ."</h2>";
-// echo "<h2>". date('j M', $end) ."</h2>";
+echo "<h2>". date('j M', $window_start) ."</h2>";
+echo "<h2>". date('j M', $window_end) ."</h2>";
 
 if($rslt = $csgo_db->query("SELECT ts FROM TAFormLog WHERE netid = \"$netid\"")) {
 	if($rslt->num_rows > 0) {
