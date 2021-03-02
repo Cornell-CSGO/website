@@ -22,6 +22,7 @@ require_once "load_netid.php";
 
 $wantedta = intval(array_key_exists('wantedta', $_POST));
 $consent = intval(array_key_exists('once_per_semester_consent', $_POST));
+$overworked = intval(array_key_exists('overworked', $_POST));
 
 // do this before we clear courese & instructor
 if($consent) {
@@ -57,15 +58,17 @@ $defer = intval(array( "now" => FALSE, "later" => TRUE )[$_POST['associate_cours
 $sql = <<<SQL
 INSERT INTO TAFormLog (netid) values ("$netid");
 INSERT INTO TAFormData
- 		(course, instructor, irelation, proficiency, ohours, ahours, happiness, defer)
+ 		(course, instructor, irelation, proficiency, wantedta, ohours, ahours, happiness, overworked, defer)
  	values ( 
 		"{$_POST['course']}", 
 		"{$_POST['instructor']}",
 		"{$_POST['irelation']}",
 		"{$_POST['proficiency']}",
+		"{$wantedta}"
 		"{$_POST['ahours']}",
 		"{$_POST['ohours']}",
 		"{$_POST['happiness']}",
+		"{$overworked}"
 		"{$defer}" );
 INSERT INTO TAFeedback (extra, extra_netid, course, instructor)
 	values ("{$_POST['extra']}", "$maybenetid", "{$_POST['course']}", "{$_POST['instructor']}");

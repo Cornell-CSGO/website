@@ -11,7 +11,7 @@ if(! in_array($netid, array("oer5"))) {
 }
 
 global $csgo_db;
-
+$comment = function($str) {return '';};
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($_POST['confirm'] == 'Yes') {
         $sql = <<<SQL
@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         CREATE TABLE TAFormLog (
         	id INT NOT NULL AUTO_INCREMENT,
         	netid VARCHAR(10),
-        	ts TIMESTAMP NOT NULL DEFAULT (CURRENT_TIMESTAMP),
+        	ts TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
         		PRIMARY KEY (id)); 
         CREATE TABLE TASemesterAutofill (
         	netid VARCHAR(10),
@@ -36,18 +36,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         	instructor VARCHAR(30),
         	irelation VARCHAR(40),
         	proficiency INT,
+            {$comment('wantedta BOOLEAN, ')}
         	ohours FLOAT,
         	ahours FLOAT,
         	happiness INT,
+            {$comment('overworked BOOLEAN,')}
         	defer BOOLEAN,
-         	ts TIMESTAMP NOT NULL DEFAULT (CURRENT_TIMESTAMP),
+         	ts TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
         		PRIMARY KEY (id));
          CREATE TABLE TAFeedback (
         	extra TEXT,
         	extra_netid VARCHAR(10),
         	course VARCHAR(20),
         	instructor VARCHAR(30),
-        	ts TIMESTAMP NOT NULL DEFAULT (CURRENT_TIMESTAMP));
+        	ts TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);
         SQL;
 
         // echo $sql;
@@ -67,7 +69,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo "Error creating tables: " . $csgo_db->error;
         }
     }
-    redirect($_POST['referer']);
+    exit;
+    // redirect($_POST['referer']);
 }
 
 // Create database unnecsessary
