@@ -25,6 +25,7 @@ require_once "load_netid.php";
 $wantedta = intval(array_key_exists('wantedta', $_POST));
 $consent = intval(array_key_exists('once_per_semester_consent', $_POST));
 $overworked = intval(array_key_exists('overworked', $_POST));
+$appthours = empty($_POST['appthours']) ?  "NULL" : "\"{$_POST['appthours']}\"";
 
 // do this before we clear courese & instructor
 if($consent) {
@@ -35,7 +36,7 @@ if($consent) {
 			"$netid",
 			"{$_POST['course']}",
 			"{$_POST['instructor']}",
-			"{$_POST['appthours']}",
+			{$appthours},
 			"{$_POST['irelation']}",
 			"{$_POST['proficiency']}",
 			"$wantedta", TRUE)
