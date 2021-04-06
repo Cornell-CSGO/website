@@ -13,6 +13,6 @@ error_reporting(E_ALL);
 
 global $csgo_db;
 
-require "../table2csv.php";
+require "table2csv.php";
 
 table2csv($csgo_db, "TASemesterAutofill");
