@@ -1,7 +1,7 @@
 <?php
 
-require "../../database.php";
-require "../../load_netid.php";
+require "../database.php";
+require "../load_netid.php";
 
 if(! in_array($netid, array("oer5"))) {
  	throw new Exception("No permission to download form data!"); 
