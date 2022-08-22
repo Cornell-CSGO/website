@@ -27,10 +27,14 @@ $logrows = nrows("TAFormLog");
 
 ?>
 
-<h3> Actions </h3>
+<h3> Actions. </h3>
 
 <a href="setupdb.php">Reset Database </a>
 
+<h3> Admin List: </h3>
+<code>
+	<?php echo implode(', ', $admin_list) ?>
+</code>
 
 <h3> Download Data: </h3>
 
