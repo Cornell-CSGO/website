@@ -2,8 +2,9 @@
 
 require "../../database.php";
 require "../../load_netid.php";
+require "../admin_list.php";
 
-if(! in_array($netid, array("oer5"))) {
+if(! in_array($netid, $admin_list)) {
  	throw new Exception("No permission to download form data!"); 
 }
 

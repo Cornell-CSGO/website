@@ -1,8 +1,17 @@
 <?php
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+require "../database.php";
+require "admin_list.php";
+require "../load_netid.php";
+
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
+
+if(! in_array($netid, $admin_list)) {
+	die("<h3>Current netid <code>[$netid]</code> not an authorized admin</h3>");
+}
+
 
 function nrows($tablename) {
 	require_once "../database.php";
