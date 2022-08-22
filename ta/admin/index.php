@@ -34,8 +34,6 @@ $logrows = nrows("TAFormLog");
 
 <h3> Download Data: </h3>
 
- &nbsp;
-
 <table>
 	<tr>
 		<td><a href="formdata">[form data]</a></td>
