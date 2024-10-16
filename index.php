@@ -47,7 +47,7 @@ $list = dirToArray('.');
                 <li><a href="https://www.cornell.edu">Cornell University</a></li>
                 <li><a href="https://www.cs.cornell.edu">CS Department</a></li>
             </ul>
-        </nav>
+	</nav>
         <!--<h1>Cornell CS <?php echo $servername ?> Server Contents</h1>-->
 	<!--<h2>This page is no longer updated and is kept for archival purposes only.</h2>-->
 	<h1>CSGO: Computer Science Graduate Organization</h1>
@@ -62,7 +62,7 @@ $list = dirToArray('.');
 	<p>
             <a href="https://list.cs.cornell.edu/pipermail/csgo-archive/"><i>Email Archive</i></a>
             <a href="https://cornellcis.slack.com/archives/C04T7QT7D"><i>Slack Channel</i></a>
-        </p>
+	</p>
     </header>
     <main>
         <hr>
@@ -73,6 +73,7 @@ foreach ($list as $item) {
     echo("        <li><a href=\"{$serverurl}/{$item}\">$item</a></li>\n");
 }
 ?>
-        </ul>
+	</ul>
+        <p><em>This is a registered student organization of Cornell University.</em></p>
     </main>
 </body>
