@@ -57,10 +57,11 @@ $list = dirToArray('.');
 	<p>
             <a href="#TBD"><b>Board + Contact</b></a>
 	    <a href="#TBD"><b>Calendar</b></a>
-	    <a href="https://drive.google.com/drive/folders/0BxSQwSBWX-4fSmphUHp5eHpiSzg?resourcekey=0-mzHZrsU1nABn9Rv8APN-qw&usp=sharing"><b>Public Working Notes &rarr;</b></a>
+	    <a href="https://forms.gle/JBgGJeqdNZQf8pwWA"><b>Leave feedback? &rarr;</b></a>
 	</p>
 	<p>
-            <a href="https://list.cs.cornell.edu/pipermail/csgo-archive/"><i>Email Archive</i></a>
+ 	   <a href="https://drive.google.com/drive/folders/0BxSQwSBWX-4fSmphUHp5eHpiSzg?resourcekey=0-mzHZrsU1nABn9Rv8APN-qw&usp=sharing"><i>Public Working Notes</i></a>
+           <a href="https://list.cs.cornell.edu/pipermail/csgo-archive/"><i>Email Archive</i></a>
             <a href="https://cornellcis.slack.com/archives/C04T7QT7D"><i>Slack Channel</i></a>
 	</p>
     </header>
